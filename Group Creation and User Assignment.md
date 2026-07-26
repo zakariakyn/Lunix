@@ -1,4 +1,4 @@
-# Administration système - Stratos Datacenter
+# Group Creation and User Assignment
 
 Petit récap des commandes utilisées pour gérer users et groupes sur l'infra Nautilus (App servers stapp01/02/03, via le jump host).
 
