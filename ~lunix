@@ -1,0 +1,31 @@
+# Création d'un utilisateur de service sans répertoire personnel
+
+Tâche : créer un utilisateur `javed` sans répertoire home sur App Server 3 (`stapp03`).
+
+## Connexion au serveur
+
+```bash
+ssh banner@stapp03
+```
+
+## Création de l'utilisateur
+
+```bash
+sudo useradd -M javed
+```
+
+`-M` empêche la création du répertoire home — utile pour un compte de service qui n'a pas besoin de stocker de fichiers personnels.
+
+## Vérification
+
+Vérifier que l'utilisateur existe :
+
+```bash
+id javed
+```
+
+⚠️ Petit piège : vérifier l'absence du home directory se fait avec `ls -la /home/javed`, pas `ls -la /javed` (le chemin par défaut des homes est `/home/<user>`, pas la racine `/`). Avec `-M`, cette commande doit renvoyer une erreur `No such file or directory`, ce qui confirme qu'aucun répertoire n'a été créé :
+
+```bash
+ls -la /home/javed
+```
